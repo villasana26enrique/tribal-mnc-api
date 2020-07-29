@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Utils\UtilsString;
 use App\Http\Services\ItunnesService;
 use App\Http\Services\TvMazeService;
 use App\Http\Services\CrcindService;
@@ -26,12 +27,15 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         try {
-            $term = $request->input('term');
+            $term = UtilsString::parseSearchTerm( $request->input('term') );
+            dd($term);
             $itunnesResponse = $this->itunnesService->getSearch( $term );
             $tvMazeResponse  = $this->tvMaze->getSearch( $term );
             //$this->crcind->getSearch( $term );
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return response()->json([
+                "Error" => $e->getMessage()
+            ]);
         }
         return response()->json([
             "itunnes" => $itunnesResponse,
