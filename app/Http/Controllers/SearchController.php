@@ -28,10 +28,9 @@ class SearchController extends Controller
     {
         try {
             $term = UtilsString::parseSearchTerm( $request->input('term') );
-            dd($term);
             $itunnesResponse = $this->itunnesService->getSearch( $term );
             $tvMazeResponse  = $this->tvMaze->getSearch( $term );
-            //$this->crcind->getSearch( $term );
+            $crResponse = $this->crcind->getSearch( $term );
         } catch (\Exception $e) {
             return response()->json([
                 "Error" => $e->getMessage()
@@ -39,7 +38,8 @@ class SearchController extends Controller
         }
         return response()->json([
             "itunnes" => $itunnesResponse,
-            "tvMaze"  => $tvMazeResponse
+            "tvMaze"  => $tvMazeResponse,
+            "crcind"    => $crResponse
         ],200);
     }
 }

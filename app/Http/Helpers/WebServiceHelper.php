@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Helpers;
+use SoapClient;
 
 class WebServiceHelper 
 {
@@ -31,5 +32,11 @@ class WebServiceHelper
         $response = curl_exec($curl);
         curl_close($curl);
         return $response;
+    }
+
+    public function apiSoapCall($url, $term)
+    {
+        $client = new SoapClient($url);
+        return $client->__soapCall("GetListByName", array([ "name" => $term]));
     }
 }
