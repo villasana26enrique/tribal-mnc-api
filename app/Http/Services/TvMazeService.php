@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Services;
+use App\Http\Helpers\WebServiceHelper;
 
 class TvMazeService 
 {
@@ -12,14 +13,15 @@ class TvMazeService
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(WebServiceHelper $wsHelper)
     {
-        //
+        $this->wsHelper = $wsHelper;
     }
 
     public function getSearch($search)
     {
-        dd($search);
-        //search/shows?q=girls
+        $url = self::URL . "search/shows?q=" . $search;
+        $response = $this->wsHelper->apiRestCall($url);
+        return json_decode($response);
     }
 }

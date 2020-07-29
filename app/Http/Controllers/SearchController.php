@@ -27,11 +27,15 @@ class SearchController extends Controller
     {
         try {
             $term = $request->input('term');
-            //$this->itunnesService->getSearch( $term );
-            //$this->tvMaze->getSearch( $term );
-            $this->crcind->getSearch( $term );
+            $itunnesResponse = $this->itunnesService->getSearch( $term );
+            $tvMazeResponse  = $this->tvMaze->getSearch( $term );
+            //$this->crcind->getSearch( $term );
         } catch (\Exception $e) {
             return $e->getMessage();
         }
+        return response()->json([
+            "itunnes" => $itunnesResponse,
+            "tvMaze"  => $tvMazeResponse
+        ],200);
     }
 }
