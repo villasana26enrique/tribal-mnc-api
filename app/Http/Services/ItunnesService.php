@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 use App\Http\Helpers\WebServiceHelper;
+use App\Handlers\ItunnesHandler;
 
 class ItunnesService 
 {
@@ -21,7 +22,7 @@ class ItunnesService
     public function getSearch($search)
     {
         $url = self::URL . "search?term=" . $search;
-        $response = $this->wsHelper->apiRestCall($url);
-        return json_decode($response);
+        $response = json_decode($this->wsHelper->apiRestCall($url));
+        return ItunnesHandler::handlerResponse($response);
     }
 }

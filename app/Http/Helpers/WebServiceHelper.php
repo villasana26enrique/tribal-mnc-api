@@ -16,7 +16,7 @@ class WebServiceHelper
         //
     }
 
-    public function apiRestCall($url)
+    public function apiRestCall($url, $method = "GET")
     {
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -27,7 +27,7 @@ class WebServiceHelper
             CURLOPT_TIMEOUT => 0,
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-            CURLOPT_CUSTOMREQUEST => "GET"
+            CURLOPT_CUSTOMREQUEST => $method
         ));
         $response = curl_exec($curl);
         curl_close($curl);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 use App\Http\Helpers\WebServiceHelper;
+use App\Handlers\CrcindHandler;
 
 class CrcindService 
 {
@@ -20,6 +21,8 @@ class CrcindService
 
     public function getSearch($term)
     {
-        return $this->wsHelper->apiSoapCall(self::URL, $term);
+        return CrcindHandler::handlerResponse(
+            $this->wsHelper->apiSoapCall(self::URL, $term)
+        );
     }
 }

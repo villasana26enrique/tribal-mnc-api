@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 use App\Http\Helpers\WebServiceHelper;
+use App\Handlers\TvMazeHandler;
 
 class TvMazeService 
 {
@@ -21,7 +22,7 @@ class TvMazeService
     public function getSearch($search)
     {
         $url = self::URL . "search/shows?q=" . $search;
-        $response = $this->wsHelper->apiRestCall($url);
-        return json_decode($response);
+        $response = json_decode($this->wsHelper->apiRestCall($url));
+        return TvMazeHandler::handlerResponse($response);
     }
 }
