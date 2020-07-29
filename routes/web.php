@@ -16,4 +16,6 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('key', 'KeyController@generateKey');
-
+$router->group(['prefix' => 'api'], function () use ($router) {
+    $router->post('search', 'SearchController@search');
+});
