@@ -16,6 +16,7 @@ class ItunnesHandler
             $option->img  = $result->artworkUrl100;
             $response[] = $option;
         }
+        usort($response, function($a, $b) {return strcmp($a->artistName, $b->artistName);});
         return $response;
     }
 }

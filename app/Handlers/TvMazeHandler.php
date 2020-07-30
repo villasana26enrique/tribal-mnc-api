@@ -16,6 +16,7 @@ class TvMazeHandler
             $option->img  = ($result->show->image) ? $result->show->image->medium: null;
             $response[] = $option;
         }
+        usort($response, function($a, $b) {return strcmp($a->name, $b->name);});
         return $response;
     }
 }
