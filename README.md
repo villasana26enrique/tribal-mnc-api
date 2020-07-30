@@ -1,24 +1,31 @@
-# Lumen PHP Framework
+## Tribal & MnC API
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://poser.pugx.org/laravel/lumen-framework/d/total.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/lumen-framework/v/stable.svg)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/laravel/lumen-framework)
+API creada en Lumen para Tribal & MnC que funciona como motor de Búsqueda para Canciones, Peliculas, Tv Show y Personas. 
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+## Paso a Paso para Instalar.
+Para poder hacer uso de esta API es fundamental tener instalado composer, si no lo tienes instalado a continuación te dejo el enlace:
 
-## Official Documentation
+1. Instalar el manejador de paquetes Composer. Lo Puedes conseguir aqui [Composer Website](https://getcomposer.org)
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+Debes asegurarte de cumplir los siguientes requisitos del sistema:
 
-## Contributing
+* PHP >= 7.2
+* OpenSSL PHP Extension
+* PDO PHP Extension
+* Mbstring PHP Extension
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. Descarga este proyecto. Puedes hacerlo directamente desde aqui o utilizando git a través de la siguiente instrucción:
 
-## Security Vulnerabilities
+    **git clone https://github.com/villasana26enrique/tribal-mnc-api.git**
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+3. Ejecutar el comando: 
 
-## License
+    **composer install**
+    
+ - Este comando se encargará de instalar los paquetes necesarios para que funcione la aplicación.
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+5. Ejecutar el siguiente comando para iniciar el Servidor:
+
+    **php artisan start:serve**
+    
+6. Listo, ya el API está funcionando en tu máquina la documentación del API donde se explica como funciona su Endpoint puedes verla aquí:
