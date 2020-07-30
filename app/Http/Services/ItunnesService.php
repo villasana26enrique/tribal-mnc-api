@@ -21,7 +21,7 @@ class ItunnesService
 
     public function getSearch($search)
     {
-        $url = self::URL . "search?term=" . $search;
+        $url = self::URL . "search?term=" . $search . "&limit=10";
         $response = json_decode($this->wsHelper->apiRestCall($url));
         return ItunnesHandler::handlerResponse($response);
     }
