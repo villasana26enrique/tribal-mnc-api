@@ -29,3 +29,4 @@ Debes asegurarte de cumplir los siguientes requisitos del sistema:
     **php artisan start:serve**
     
 6. Listo, ya el API está funcionando en tu máquina la documentación del API donde se explica como funciona su Endpoint puedes verla aquí:
+[Api Doc](https://documenter.getpostman.com/view/2038648/T1DtfbHr)
