@@ -1,6 +1,6 @@
 ## Tribal & MnC API
 
-API creada en Lumen para Tribal & MnC que funciona como motor de Búsqueda para Canciones, Peliculas, Tv Show y Personas. 
+API creada en Lumen para **Tribal & MnC** que funciona como motor de Búsqueda para Canciones, Peliculas, Tv Show y Personas. 
 
 ## Paso a Paso para Instalar.
 Para poder hacer uso de esta API es fundamental tener instalado composer, si no lo tienes instalado a continuación te dejo el enlace:
