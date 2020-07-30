@@ -15,11 +15,11 @@ class SearchController extends Controller
      *
      * @return void
      */
-    public function __construct(ItunnesService $itunnes,
+    public function __construct(ItunnesService $itunes,
                                 TvMazeService  $tvMaze,
                                 CrcindService  $crcind)
     {
-        $this->itunnesService = $itunnes;
+        $this->itunesService = $itunes;
         $this->tvMaze = $tvMaze;
         $this->crcind = $crcind;
     }
@@ -28,7 +28,7 @@ class SearchController extends Controller
     {
         try {
             $term = UtilsString::parseSearchTerm( $request->input('term') );
-            $itunnesResponse = $this->itunnesService->getSearch( $term );
+            $itunesResponse = $this->itunesService->getSearch( $term );
             $tvMazeResponse  = $this->tvMaze->getSearch( $term );
             $crResponse = $this->crcind->getSearch( $term );
         } catch (\Exception $e) {
@@ -37,7 +37,7 @@ class SearchController extends Controller
             ]);
         }
         return response()->json([
-            "itunnes" => $itunnesResponse,
+            "itunes" => $itunesResponse,
             "tvMaze"  => $tvMazeResponse,
             "crcind"    => $crResponse
         ],200);
